@@ -1,0 +1,7 @@
+INSERT INTO airplane (capacity, code, type) VALUES (250, 'Airbus737', 'Airbus');
+INSERT INTO airport (city, code, name, nation) VALUES ('Poznan', 'POZ', 'Poznan Airport', 'Poland');
+INSERT INTO airport (city, code, name, nation) VALUES ('Warsaw', 'WAW', 'Warsaw', 'Poland');
+INSERT INTO flight (arrival_time, departure_time, duration, number, status, airplane_id, arrival_airport_id, departure_airport_id) VALUES ('2023-06-19 15:59:24.999000', '2023-06-19 15:59:24.999000', 10800000000000, 'BA2490', 'NEW', 1, 1, 2);
+INSERT INTO flight (arrival_time, departure_time, duration, number, status, airplane_id, arrival_airport_id, departure_airport_id) VALUES ('2023-06-19 15:59:24.999000', '2023-06-19 15:59:24.999000', 10800000000000, 'BA2491', 'NEW', 1, 2, 1);
+INSERT INTO flight (arrival_time, departure_time, duration, number, status, airplane_id, arrival_airport_id, departure_airport_id) VALUES ('2023-06-19 15:59:24.999000', '2023-06-19 15:59:24.999000', 10800000000000, 'BA2492', 'NEW', 1, 2, 1);
+INSERT INTO flight (arrival_time, departure_time, duration, number, status, airplane_id, arrival_airport_id, departure_airport_id) VALUES ('2023-06-19 15:59:24.999000', '2023-06-19 15:59:24.999000', 10800000000000, 'BA2493', 'NEW', 1, 2, 1);

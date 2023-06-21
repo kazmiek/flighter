@@ -1,0 +1,40 @@
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - 'MYSQL_DATABASE=db'
+      - 'MYSQL_USER=user'
+      - 'MYSQL_PASSWORD=password'
+      - 'MYSQL_ROOT_PASSWORD=verysecret'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  flighter-app:
+    depends_on:
+      mysql:
+        condition: service_healthy
+    image: flighter:latest
+    restart: always
+    environment:
+      - "SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/db"
+      - "SPRING_FLYWAY_URL=jdbc:mysql://mysql:3306/db"
+      - "SPRING_FLYWAY_USER=user"
+      - "SPRING_FLYWAY_PASSWORD=password"
+      - "SPRING_FLYWAY_SCHEMAS=db"
+    ports:
+      - '8080:8080'
+    expose:
+      - '8080'
+
+volumes:
+  my-db:
+
